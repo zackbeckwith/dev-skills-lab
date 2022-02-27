@@ -15,9 +15,9 @@
     <ul>
       <% skills.forEach(function(skill) { %>
         <li>
-          <%= skill.text %>
+          <a href="/skills/<%= skill._id %>"><%= skill.text %></a>
             - 
-          <%= skill.done ? 'indeed!' : 'not quite!' %>
+          <%= skill.done ? 'Proficient 💅' : 'Not yet Proficient 😢' %>
         </li>
       <% }) %>
     </ul>
