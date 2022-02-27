@@ -1,7 +1,7 @@
 const skills = [
-  {text: 'Feed llama', done: true, _id: 125223},
-  {text: 'Sleep under the stars', done: false, _id: 127904},
-  {text: 'Buy milk', done: false, _id: 139608},
+  {text: '🧑‍💻Software Engineer', done: false, _id: 696969},
+  {text: '🐕Veterinary Professional', done: true, _id: 420699},
+  {text: '🎮Sick Pro Gamer', done: true, _id: 6101999},
 ]
 
 const find = (conditions, callback) => {
@@ -35,8 +35,20 @@ function create(skill, callback) {
   return callback(null, skill)
 }
 
+function findByIdAndDelete(id, callback) {
+  try { 
+    const idx = skills.findIndex(skill => skill._id == parseInt(id))
+    const deletedSkill = skills.splice(idx, 1)
+    if (!deletedSkill.length ) throw new Error ('No skill was deleted')
+    return callback(null, deletedSkill[0])
+  } catch(error) {
+    return callback(error, null)
+  }
+}
+
 export { 
 	find,
   findById,
   create,
+  findByIdAndDelete,
 }
